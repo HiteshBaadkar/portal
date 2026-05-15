@@ -1,0 +1,75 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Leather Selection',
+    body: 'Every hide is hand-picked from our Italian tannery supplier — inspected for grain consistency, thickness, and natural character before a single cut is made.',
+    img: '/images/ig-6.jpg',
+  },
+  {
+    number: '02',
+    title: 'Hand Cutting',
+    body: 'Each mat is measured and cut by hand using precision tools. No laser, no die — just craft knives and a steady hand, ensuring clean edges every time.',
+    img: '/images/desk-caramel.png',
+  },
+  {
+    number: '03',
+    title: 'Edge Finishing',
+    body: 'Raw edges are bevelled, burnished and sealed by hand — the detail that separates a leather product from a truly handcrafted one. This step alone takes longer than cutting.',
+    img: '/images/ig-4.jpg',
+  },
+  {
+    number: '04',
+    title: 'Final Assembly',
+    body: 'The mat is stitched, inspected under direct light, and cleared for dispatch. If anything is off, it goes back. Every piece that ships is one the founder would keep herself.',
+    img: '/images/ig-3.jpg',
+  },
+];
+---
+
+<section id="craftsmanship" class="bg-void py-28 px-6 sm:px-12 lg:px-16 xl:px-24">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="flex items-center gap-3 mb-6">
+      <div class="h-px w-6 bg-caramel"></div>
+      <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">The Process</p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20">
+      <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight max-w-md">
+        Four steps.<br /><em class="text-caramel">No shortcuts.</em>
+      </h2>
+      <p class="text-sand/40 text-sm leading-relaxed max-w-xs">
+        Every Turfaa piece passes through the same four stages — in the same Dubai atelier, by the same hands.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid md:grid-cols-2 gap-px bg-white/5">
+      {steps.map(step => (
+        <div class="bg-void group relative overflow-hidden flex flex-col">
+          <!-- Image -->
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src={step.img}
+              alt={step.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-50 group-hover:brightness-60"
+              loading="lazy"
+            />
+          </div>
+          <!-- Content overlaid at bottom -->
+          <div class="p-8 border-t border-white/5 flex gap-6">
+            <span class="font-serif text-5xl text-white/10 leading-none flex-shrink-0 select-none">
+              {step.number}
+            </span>
+            <div>
+              <h3 class="font-serif text-xl text-white mb-3">{step.title}</h3>
+              <p class="text-sand/45 text-sm leading-relaxed font-light">{step.body}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

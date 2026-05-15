@@ -4,18 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'leather-cream': '#FBF9F6',
-        'atelier-black': '#1A1A1A',
+        'void': '#0a0a0a',
+        'void-2': '#111111',
+        'void-3': '#1a1a1a',
+        'sand': '#E8E0D5',
+        'sand-dim': '#9A9189',
         'caramel': '#8C6239',
         'caramel-light': '#A8784A',
-        'warm-grey': '#B0A99A',
+        'leather-cream': '#FBF9F6',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
-      },
-      letterSpacing: {
-        widest: '0.2em',
       },
     },
   },

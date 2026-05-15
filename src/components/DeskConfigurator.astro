@@ -31,130 +31,135 @@ const colors = [
 ];
 ---
 
-<section id="collection" class="py-24 px-6 sm:px-12 lg:px-16 xl:px-24 max-w-7xl mx-auto">
+<section id="collection" class="bg-void-2 py-28 px-6 sm:px-12 lg:px-16 xl:px-24">
+  <div class="max-w-7xl mx-auto">
 
-  <!-- Section header -->
-  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-4">
-    <div>
-      <p class="text-xs tracking-widest uppercase text-caramel mb-3">New Products</p>
-      <h2 class="font-serif text-3xl sm:text-4xl text-atelier-black">The Founders Collection</h2>
-    </div>
-    <p class="text-sm text-atelier-black/50 max-w-xs leading-relaxed">
-      Select a colourway below to see both pieces update together.
-    </p>
-  </div>
-
-  <!-- Color selector -->
-  <div class="flex items-center gap-3 mb-12" role="group" aria-label="Select colourway">
-    {colors.map((c, i) => (
-      <button
-        class="color-btn group flex items-center gap-2.5 px-4 py-2.5 border text-xs tracking-wider uppercase transition-all"
-        data-color={c.id}
-        data-desk={c.deskMat}
-        data-pad={c.mousePad}
-        aria-pressed={i === 0 ? 'true' : 'false'}
-      >
-        <span
-          class="w-4 h-4 rounded-full ring-1 ring-atelier-black/20 flex-shrink-0"
-          style={`background:${c.swatch}`}
-        ></span>
-        <span class="hidden sm:inline">{c.label}</span>
-      </button>
-    ))}
-  </div>
-
-  <!-- Products grid -->
-  <div class="grid md:grid-cols-2 gap-6 lg:gap-10">
-
-    <!-- Desk Mat -->
-    <div class="group">
-      <div class="relative overflow-hidden bg-atelier-black/5 aspect-[4/3]">
-        <img
-          id="desk-mat-img"
-          src={colors[0].deskMat}
-          alt="The Founders Desk Mat"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div class="absolute top-4 left-4 bg-leather-cream/90 backdrop-blur-sm text-atelier-black text-[10px] tracking-widest uppercase px-3 py-1.5">
-          Desk Mat
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="h-px w-6 bg-caramel"></div>
+          <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">The Collection</p>
         </div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight">
+          The Founders<br /><em class="not-italic text-sand/50">Series</em>
+        </h2>
       </div>
-      <div class="pt-6 flex items-end justify-between">
-        <div>
-          <h3 class="font-serif text-xl text-atelier-black mb-1">The Founders Desk Mat</h3>
-          <p class="text-sm text-atelier-black/50">Italian leather · 90 × 40 cm · Hand-stitched edges</p>
+      <p class="text-sand/40 text-sm leading-relaxed max-w-xs">
+        Choose your colourway — both pieces update in sync.
+      </p>
+    </div>
+
+    <!-- Colour selector -->
+    <div class="flex items-center gap-2 sm:gap-3 mb-14">
+      {colors.map((c, i) => (
+        <button
+          class="color-btn flex items-center gap-2.5 px-4 py-2.5 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-sand/40 transition-all hover:border-caramel/50 hover:text-sand/70"
+          data-color={c.id}
+          data-desk={c.deskMat}
+          data-pad={c.mousePad}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+        >
+          <span
+            class="w-3.5 h-3.5 rounded-full flex-shrink-0 ring-1 ring-white/10"
+            style={`background:${c.swatch}`}
+          ></span>
+          <span class="hidden sm:inline">{c.label}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Products -->
+    <div class="grid md:grid-cols-2 gap-4 lg:gap-6">
+
+      <!-- Desk Mat -->
+      <div>
+        <div class="relative overflow-hidden aspect-[3/2] bg-void-3 group">
+          <img
+            id="desk-mat-img"
+            src={colors[0].deskMat}
+            alt="The Founders Desk Mat"
+            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+            <div>
+              <p class="text-[9px] tracking-[0.25em] uppercase text-sand/40 mb-1">Desk Mat</p>
+              <h3 class="font-serif text-xl text-white">The Founders Desk Mat</h3>
+            </div>
+            <p class="font-serif text-2xl text-caramel">320 <span class="text-sm text-sand/40 font-sans font-light">AED</span></p>
+          </div>
         </div>
-        <div class="text-right flex-shrink-0 ml-4">
-          <p class="font-serif text-2xl text-atelier-black">Dhs. 320</p>
+        <div class="mt-4 flex items-center justify-between px-1">
+          <p class="text-[11px] text-sand/30 tracking-wider">Italian leather · Hand-stitched edges</p>
           <a
             href="https://turfaa-atelier.com/products/the-founders-desk-mat"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs uppercase tracking-widest text-caramel hover:underline underline-offset-2"
+            class="text-[11px] tracking-[0.15em] uppercase text-caramel hover:text-caramel-light transition-colors"
           >
             Order →
           </a>
         </div>
       </div>
-    </div>
 
-    <!-- Mouse Pad -->
-    <div class="group">
-      <div class="relative overflow-hidden bg-atelier-black/5 aspect-[4/3]">
-        <img
-          id="mouse-pad-img"
-          src={colors[0].mousePad}
-          alt="The Founders Mouse Pad"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div class="absolute top-4 left-4 bg-leather-cream/90 backdrop-blur-sm text-atelier-black text-[10px] tracking-widest uppercase px-3 py-1.5">
-          Mouse Pad
+      <!-- Mouse Pad -->
+      <div>
+        <div class="relative overflow-hidden aspect-[3/2] bg-void-3 group">
+          <img
+            id="mouse-pad-img"
+            src={colors[0].mousePad}
+            alt="The Founders Mouse Pad"
+            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+            <div>
+              <p class="text-[9px] tracking-[0.25em] uppercase text-sand/40 mb-1">Mouse Pad</p>
+              <h3 class="font-serif text-xl text-white">The Founders Mouse Pad</h3>
+            </div>
+            <p class="font-serif text-2xl text-caramel">150 <span class="text-sm text-sand/40 font-sans font-light">AED</span></p>
+          </div>
         </div>
-      </div>
-      <div class="pt-6 flex items-end justify-between">
-        <div>
-          <h3 class="font-serif text-xl text-atelier-black mb-1">The Founders Mouse Pad</h3>
-          <p class="text-sm text-atelier-black/50">Italian leather · 30 × 25 cm · Bevelled edge</p>
-        </div>
-        <div class="text-right flex-shrink-0 ml-4">
-          <p class="font-serif text-2xl text-atelier-black">Dhs. 150</p>
+        <div class="mt-4 flex items-center justify-between px-1">
+          <p class="text-[11px] text-sand/30 tracking-wider">Italian leather · Bevelled edge</p>
           <a
             href="https://turfaa-atelier.com/products/the-founders-mouse-pad"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs uppercase tracking-widest text-caramel hover:underline underline-offset-2"
+            class="text-[11px] tracking-[0.15em] uppercase text-caramel hover:text-caramel-light transition-colors"
           >
             Order →
           </a>
         </div>
       </div>
+
     </div>
 
-  </div>
-
-  <!-- Bundle CTA -->
-  <div class="mt-12 border border-atelier-black/15 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-    <div>
-      <p class="text-xs tracking-widest uppercase text-caramel mb-2">Bundle Offer</p>
-      <h3 class="font-serif text-2xl text-atelier-black mb-1">The Complete Founders Set</h3>
-      <p class="text-sm text-atelier-black/50">Desk Mat + Mouse Pad — matched in your chosen colourway</p>
-    </div>
-    <div class="flex items-center gap-6 flex-shrink-0">
-      <div class="text-right">
-        <p class="text-xs text-atelier-black/40 line-through">Dhs. 470</p>
-        <p class="font-serif text-3xl text-atelier-black">Dhs. 450</p>
+    <!-- Bundle -->
+    <div class="mt-8 border border-white/8 bg-void-3 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+      <div>
+        <p class="text-caramel text-[10px] tracking-[0.25em] uppercase mb-3">Bundle — Save AED 20</p>
+        <h3 class="font-serif text-2xl sm:text-3xl text-white mb-2">The Complete Founders Set</h3>
+        <p class="text-sand/40 text-sm">Desk Mat + Mouse Pad · Matched colourway · Delivered next day</p>
       </div>
-      <a
-        href="https://wa.me/971523244717?text=Hi!%20I'd%20like%20to%20order%20The%20Complete%20Founders%20Set"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bg-atelier-black text-leather-cream px-7 py-4 text-xs tracking-widest uppercase hover:bg-caramel transition-colors whitespace-nowrap"
-      >
-        Order via WhatsApp
-      </a>
+      <div class="flex items-center gap-8 flex-shrink-0">
+        <div>
+          <p class="text-sand/25 text-sm line-through mb-0.5">AED 470</p>
+          <p class="font-serif text-4xl text-white">450 <span class="text-base text-sand/40 font-sans font-light">AED</span></p>
+        </div>
+        <a
+          href="https://wa.me/971523244717?text=Hi!%20I'd%20like%20to%20order%20The%20Complete%20Founders%20Set"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-caramel text-white px-8 py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-caramel-light transition-colors whitespace-nowrap"
+        >
+          Order via WhatsApp
+        </a>
+      </div>
     </div>
-  </div>
 
+  </div>
 </section>
 
 <script>
@@ -162,39 +167,32 @@ const colors = [
   const deskImg = document.getElementById('desk-mat-img') as HTMLImageElement;
   const padImg = document.getElementById('mouse-pad-img') as HTMLImageElement;
 
+  [deskImg, padImg].forEach(img => { if (img) img.style.transition = 'opacity 0.25s ease'; });
+
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       btns.forEach(b => {
-        b.classList.remove('border-atelier-black', 'bg-atelier-black', 'text-leather-cream');
-        b.classList.add('border-atelier-black/20');
+        b.classList.remove('border-caramel', 'text-sand');
+        b.classList.add('border-white/10', 'text-sand/40');
         b.setAttribute('aria-pressed', 'false');
       });
-      btn.classList.add('border-atelier-black', 'bg-atelier-black', 'text-leather-cream');
-      btn.classList.remove('border-atelier-black/20');
+      btn.classList.remove('border-white/10', 'text-sand/40');
+      btn.classList.add('border-caramel', 'text-sand');
       btn.setAttribute('aria-pressed', 'true');
-
-      const desk = btn.dataset.desk!;
-      const pad = btn.dataset.pad!;
 
       deskImg.style.opacity = '0';
       padImg.style.opacity = '0';
       setTimeout(() => {
-        deskImg.src = desk;
-        padImg.src = pad;
+        deskImg.src = btn.dataset.desk!;
+        padImg.src = btn.dataset.pad!;
         deskImg.style.opacity = '1';
         padImg.style.opacity = '1';
-      }, 200);
+      }, 250);
     });
   });
 
-  // Initialise first button as active
   if (btns[0]) {
-    btns[0].classList.add('border-atelier-black', 'bg-atelier-black', 'text-leather-cream');
-    btns[0].classList.remove('border-atelier-black/20');
+    btns[0].classList.remove('border-white/10', 'text-sand/40');
+    btns[0].classList.add('border-caramel', 'text-sand');
   }
-
-  // Smooth fade via inline style
-  [deskImg, padImg].forEach(img => {
-    if (img) img.style.transition = 'opacity 0.2s ease';
-  });
 </script>

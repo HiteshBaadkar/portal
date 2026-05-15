@@ -1,0 +1,200 @@
+---
+const colors = [
+  {
+    id: 'caramel',
+    label: 'Caramel',
+    swatch: '#9B6B3E',
+    deskMat: 'https://turfaa-atelier.com/cdn/shop/files/ChatGPTImageMay11_2026at10_40_01AM.png?v=1778482032&width=1200',
+    mousePad: 'https://turfaa-atelier.com/cdn/shop/files/ChatGPTImageMay13_2026at04_51_45PM.png?v=1778763897&width=800',
+  },
+  {
+    id: 'midnight',
+    label: 'Midnight',
+    swatch: '#1C1C2E',
+    deskMat: 'https://turfaa-atelier.com/cdn/shop/files/ChatGPTImageMay11_2026at10_30_45AM.png?v=1778481896&width=1200',
+    mousePad: 'https://turfaa-atelier.com/cdn/shop/files/ChatGPTImageMay13_2026at05_02_35PM.png?v=1778763898&width=800',
+  },
+  {
+    id: 'beige',
+    label: 'Beige',
+    swatch: '#C9B99A',
+    deskMat: 'https://turfaa-atelier.com/cdn/shop/files/image0.png?v=1778490692&width=1200',
+    mousePad: 'https://turfaa-atelier.com/cdn/shop/files/ChatGPTImageMay13_2026at05_04_14PM.png?v=1778763898&width=800',
+  },
+  {
+    id: 'grey',
+    label: 'Grey',
+    swatch: '#7A7A7A',
+    deskMat: 'https://turfaa-atelier.com/cdn/shop/files/ChatGPT_Image_May_12_2026_at_09_50_47_AM.png?v=1778565898&width=1200',
+    mousePad: 'https://turfaa-atelier.com/cdn/shop/files/ChatGPTImageMay13_2026at05_06_38PM.png?v=1778763898&width=800',
+  },
+];
+---
+
+<section id="collection" class="py-24 px-6 sm:px-12 lg:px-16 xl:px-24 max-w-7xl mx-auto">
+
+  <!-- Section header -->
+  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-4">
+    <div>
+      <p class="text-xs tracking-widest uppercase text-caramel mb-3">New Products</p>
+      <h2 class="font-serif text-3xl sm:text-4xl text-atelier-black">The Founders Collection</h2>
+    </div>
+    <p class="text-sm text-atelier-black/50 max-w-xs leading-relaxed">
+      Select a colourway below to see both pieces update together.
+    </p>
+  </div>
+
+  <!-- Color selector -->
+  <div class="flex items-center gap-3 mb-12" role="group" aria-label="Select colourway">
+    {colors.map((c, i) => (
+      <button
+        class="color-btn group flex items-center gap-2.5 px-4 py-2.5 border text-xs tracking-wider uppercase transition-all"
+        data-color={c.id}
+        data-desk={c.deskMat}
+        data-pad={c.mousePad}
+        aria-pressed={i === 0 ? 'true' : 'false'}
+      >
+        <span
+          class="w-4 h-4 rounded-full ring-1 ring-atelier-black/20 flex-shrink-0"
+          style={`background:${c.swatch}`}
+        ></span>
+        <span class="hidden sm:inline">{c.label}</span>
+      </button>
+    ))}
+  </div>
+
+  <!-- Products grid -->
+  <div class="grid md:grid-cols-2 gap-6 lg:gap-10">
+
+    <!-- Desk Mat -->
+    <div class="group">
+      <div class="relative overflow-hidden bg-atelier-black/5 aspect-[4/3]">
+        <img
+          id="desk-mat-img"
+          src={colors[0].deskMat}
+          alt="The Founders Desk Mat"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div class="absolute top-4 left-4 bg-leather-cream/90 backdrop-blur-sm text-atelier-black text-[10px] tracking-widest uppercase px-3 py-1.5">
+          Desk Mat
+        </div>
+      </div>
+      <div class="pt-6 flex items-end justify-between">
+        <div>
+          <h3 class="font-serif text-xl text-atelier-black mb-1">The Founders Desk Mat</h3>
+          <p class="text-sm text-atelier-black/50">Italian leather · 90 × 40 cm · Hand-stitched edges</p>
+        </div>
+        <div class="text-right flex-shrink-0 ml-4">
+          <p class="font-serif text-2xl text-atelier-black">Dhs. 320</p>
+          <a
+            href="https://turfaa-atelier.com/products/the-founders-desk-mat"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs uppercase tracking-widest text-caramel hover:underline underline-offset-2"
+          >
+            Order →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mouse Pad -->
+    <div class="group">
+      <div class="relative overflow-hidden bg-atelier-black/5 aspect-[4/3]">
+        <img
+          id="mouse-pad-img"
+          src={colors[0].mousePad}
+          alt="The Founders Mouse Pad"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div class="absolute top-4 left-4 bg-leather-cream/90 backdrop-blur-sm text-atelier-black text-[10px] tracking-widest uppercase px-3 py-1.5">
+          Mouse Pad
+        </div>
+      </div>
+      <div class="pt-6 flex items-end justify-between">
+        <div>
+          <h3 class="font-serif text-xl text-atelier-black mb-1">The Founders Mouse Pad</h3>
+          <p class="text-sm text-atelier-black/50">Italian leather · 30 × 25 cm · Bevelled edge</p>
+        </div>
+        <div class="text-right flex-shrink-0 ml-4">
+          <p class="font-serif text-2xl text-atelier-black">Dhs. 150</p>
+          <a
+            href="https://turfaa-atelier.com/products/the-founders-mouse-pad"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs uppercase tracking-widest text-caramel hover:underline underline-offset-2"
+          >
+            Order →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bundle CTA -->
+  <div class="mt-12 border border-atelier-black/15 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+    <div>
+      <p class="text-xs tracking-widest uppercase text-caramel mb-2">Bundle Offer</p>
+      <h3 class="font-serif text-2xl text-atelier-black mb-1">The Complete Founders Set</h3>
+      <p class="text-sm text-atelier-black/50">Desk Mat + Mouse Pad — matched in your chosen colourway</p>
+    </div>
+    <div class="flex items-center gap-6 flex-shrink-0">
+      <div class="text-right">
+        <p class="text-xs text-atelier-black/40 line-through">Dhs. 470</p>
+        <p class="font-serif text-3xl text-atelier-black">Dhs. 450</p>
+      </div>
+      <a
+        href="https://wa.me/971523244717?text=Hi!%20I'd%20like%20to%20order%20The%20Complete%20Founders%20Set"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-atelier-black text-leather-cream px-7 py-4 text-xs tracking-widest uppercase hover:bg-caramel transition-colors whitespace-nowrap"
+      >
+        Order via WhatsApp
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.color-btn');
+  const deskImg = document.getElementById('desk-mat-img') as HTMLImageElement;
+  const padImg = document.getElementById('mouse-pad-img') as HTMLImageElement;
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => {
+        b.classList.remove('border-atelier-black', 'bg-atelier-black', 'text-leather-cream');
+        b.classList.add('border-atelier-black/20');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('border-atelier-black', 'bg-atelier-black', 'text-leather-cream');
+      btn.classList.remove('border-atelier-black/20');
+      btn.setAttribute('aria-pressed', 'true');
+
+      const desk = btn.dataset.desk!;
+      const pad = btn.dataset.pad!;
+
+      deskImg.style.opacity = '0';
+      padImg.style.opacity = '0';
+      setTimeout(() => {
+        deskImg.src = desk;
+        padImg.src = pad;
+        deskImg.style.opacity = '1';
+        padImg.style.opacity = '1';
+      }, 200);
+    });
+  });
+
+  // Initialise first button as active
+  if (btns[0]) {
+    btns[0].classList.add('border-atelier-black', 'bg-atelier-black', 'text-leather-cream');
+    btns[0].classList.remove('border-atelier-black/20');
+  }
+
+  // Smooth fade via inline style
+  [deskImg, padImg].forEach(img => {
+    if (img) img.style.transition = 'opacity 0.2s ease';
+  });
+</script>

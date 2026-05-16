@@ -25,91 +25,71 @@ const faqs = [
 <section class="bg-void-2 py-28 px-6 sm:px-12 lg:px-16 xl:px-24">
   <div class="max-w-7xl mx-auto">
 
-    <div class="grid lg:grid-cols-[1fr_2fr] gap-16 xl:gap-32">
+    <div class="flex items-center gap-3 mb-14">
+      <div class="h-px w-6 bg-caramel"></div>
+      <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">Questions</p>
+    </div>
 
-      <div>
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-6 bg-caramel"></div>
-          <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">Questions</p>
-        </div>
-        <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight">
-          Common<br /><em class="text-caramel">questions.</em>
-        </h2>
-        <p class="mt-6 text-sand/40 text-sm leading-relaxed">
-          Anything else? Message us on WhatsApp — we reply within the hour.
-        </p>
-        <a
-          href="https://wa.me/971523244717"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-6 inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-caramel hover:text-caramel-light transition-colors"
-        >
-          WhatsApp us →
-        </a>
+    <div class="grid lg:grid-cols-2 gap-0 border border-white/6">
+
+      <!-- Question list -->
+      <div class="border-r border-white/6">
+        {faqs.map((faq, i) => (
+          <button
+            class="faq-q w-full text-left px-8 py-6 border-b border-white/6 last:border-b-0 flex items-center justify-between gap-6 transition-colors duration-200 hover:bg-white/3 group"
+            data-index={String(i)}
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            <span class="text-sm font-light tracking-wide text-sand/50 group-[&[aria-selected=true]]:text-white transition-colors duration-200">{faq.q}</span>
+            <span class="shrink-0 w-1.5 h-1.5 rounded-full bg-caramel opacity-0 group-[&[aria-selected=true]]:opacity-100 transition-opacity duration-200"></span>
+          </button>
+        ))}
       </div>
 
-      <div class="divide-y divide-white/6" id="faq-list">
+      <!-- Answer panel — fixed height, content fades -->
+      <div class="relative min-h-[280px] flex flex-col justify-between p-8 lg:p-12">
         {faqs.map((faq, i) => (
-          <div class="faq-item py-7" data-index={i}>
-            <button
-              class="faq-btn w-full flex items-center justify-between gap-8 text-white text-sm tracking-wide font-light text-left"
-              aria-expanded="false"
+          <div
+            class="faq-a absolute inset-0 p-8 lg:p-12 flex flex-col justify-between transition-opacity duration-300"
+            data-index={String(i)}
+            aria-hidden={i !== 0 ? 'true' : 'false'}
+            style={i !== 0 ? 'opacity:0;pointer-events:none' : ''}
+          >
+            <p class="text-sand/55 text-sm leading-relaxed font-light">{faq.a}</p>
+            <a
+              href="https://wa.me/971523244717"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-8 inline-flex items-center gap-2 text-[10px] tracking-[0.18em] uppercase text-caramel hover:text-caramel-light transition-colors self-start"
             >
-              <span>{faq.q}</span>
-              <span class="faq-icon shrink-0 text-caramel text-xl leading-none transition-transform duration-300">+</span>
-            </button>
-            <div class="faq-body overflow-hidden" style="max-height: 0;">
-              <p class="pt-5 pb-2 text-sand/45 text-sm leading-relaxed font-light pr-8">{faq.a}</p>
-            </div>
+              Ask us on WhatsApp →
+            </a>
           </div>
         ))}
       </div>
 
     </div>
+
   </div>
 </section>
 
 <script>
-  const list = document.getElementById('faq-list') as HTMLElement;
-  const bodies = list.querySelectorAll<HTMLElement>('.faq-body');
+  const questions = document.querySelectorAll<HTMLButtonElement>('.faq-q');
+  const answers   = document.querySelectorAll<HTMLElement>('.faq-a');
 
-  // Expand all, measure full height, then collapse — lock that height
-  bodies.forEach(b => { b.style.transition = 'none'; b.style.maxHeight = b.scrollHeight + 'px'; });
-  requestAnimationFrame(() => {
-    list.style.minHeight = list.scrollHeight + 'px';
-    bodies.forEach(b => { b.style.maxHeight = '0'; b.style.transition = ''; });
-  });
-
-  document.querySelectorAll<HTMLElement>('.faq-item').forEach(item => {
-    const btn = item.querySelector<HTMLButtonElement>('.faq-btn')!;
-    const body = item.querySelector<HTMLElement>('.faq-body')!;
-    const icon = item.querySelector<HTMLElement>('.faq-icon')!;
-
+  questions.forEach(btn => {
     btn.addEventListener('click', () => {
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const idx = btn.dataset.index!;
 
-      // Close all
-      document.querySelectorAll<HTMLElement>('.faq-item').forEach(other => {
-        other.querySelector('.faq-btn')!.setAttribute('aria-expanded', 'false');
-        (other.querySelector('.faq-body') as HTMLElement).style.maxHeight = '0';
-        (other.querySelector('.faq-icon') as HTMLElement).style.transform = 'rotate(0deg)';
+      questions.forEach(q => q.setAttribute('aria-selected', 'false'));
+      btn.setAttribute('aria-selected', 'true');
+
+      answers.forEach(a => {
+        const active = a.dataset.index === idx;
+        a.style.opacity = active ? '1' : '0';
+        a.style.pointerEvents = active ? 'auto' : 'none';
+        a.setAttribute('aria-hidden', active ? 'false' : 'true');
       });
-
-      // Open clicked if it was closed
-      if (!isOpen) {
-        btn.setAttribute('aria-expanded', 'true');
-        body.style.maxHeight = body.scrollHeight + 'px';
-        icon.style.transform = 'rotate(45deg)';
-      }
     });
   });
 </script>
-
-<style>
-  .faq-body {
-    transition: max-height 0.4s ease-in-out;
-  }
-  #faq-list {
-    overflow-anchor: none;
-  }
-</style>

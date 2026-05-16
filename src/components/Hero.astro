@@ -2,7 +2,6 @@
 ---
 <section class="relative min-h-screen flex items-end overflow-hidden">
 
-  <!-- Full-bleed background image -->
   <div class="absolute inset-0">
     <img
       src="/images/hero.jpg"
@@ -11,31 +10,29 @@
       class="w-full h-full object-cover"
       loading="eager"
     />
-    <!-- Multi-layer dark gradient -->
     <div class="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-void/20"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-void/70 via-transparent to-transparent"></div>
   </div>
 
-  <!-- Content -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-24 pb-20 lg:pb-28 pt-32">
     <div class="max-w-2xl">
 
-      <div class="flex items-center gap-3 mb-8">
-        <div class="h-px w-8 bg-caramel"></div>
+      <div class="flex items-center gap-3 mb-8 hero-eyebrow">
+        <div class="h-px w-8 bg-caramel anim-line"></div>
         <p class="text-caramel text-[11px] tracking-[0.25em] uppercase font-sans">Est. 2026 · Dubai</p>
       </div>
 
       <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.0] text-white mb-8">
-        Leather.<br />
-        <span class="text-caramel italic">Handcrafted.</span><br />
-        Dubai.
+        <span class="block overflow-hidden"><span class="block hero-line">Leather.</span></span>
+        <span class="block overflow-hidden"><span class="block hero-line text-caramel italic">Handcrafted.</span></span>
+        <span class="block overflow-hidden"><span class="block hero-line">Dubai.</span></span>
       </h1>
 
-      <p class="text-sand/60 text-base sm:text-lg leading-relaxed max-w-lg mb-12 font-light">
+      <p class="hero-body text-sand/60 text-base sm:text-lg leading-relaxed max-w-lg mb-12 font-light">
         100% Italian cow leather desk accessories made in small batches — designed to age beautifully and grow richer with every use.
       </p>
 
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-wrap gap-4 hero-cta">
         <a
           href="#collection"
           class="inline-flex items-center gap-3 bg-caramel text-white px-8 py-4 text-[11px] tracking-[0.2em] uppercase hover:bg-caramel-light transition-colors"
@@ -53,8 +50,7 @@
         </a>
       </div>
 
-      <!-- Trust row -->
-      <div class="mt-16 flex flex-wrap gap-8 text-[10px] tracking-[0.2em] uppercase text-sand/30">
+      <div class="mt-16 flex flex-wrap gap-8 text-[10px] tracking-[0.2em] uppercase text-sand/30 hero-trust">
         <span>✦ 100% Handmade</span>
         <span>✦ Italian Leather</span>
         <span>✦ Next-Day UAE</span>
@@ -63,7 +59,6 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
   <div class="absolute bottom-8 right-8 sm:right-12 lg:right-16 xl:right-24 flex flex-col items-center gap-2 z-10">
     <span class="text-[9px] tracking-[0.3em] uppercase text-sand/30 [writing-mode:vertical-lr]">Scroll</span>
     <div class="w-px h-12 bg-gradient-to-b from-sand/30 to-transparent"></div>

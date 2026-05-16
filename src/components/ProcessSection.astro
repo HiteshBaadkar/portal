@@ -3,7 +3,7 @@ const steps = [
   {
     number: '01',
     title: 'Leather Selection',
-    body: 'Every hide is hand-picked from our Italian tannery supplier — inspected for grain consistency, thickness, and natural character before a single cut is made.',
+    body: 'Every hide is hand-picked from our Italian tannery — inspected for grain consistency, thickness, and natural character before a single cut is made.',
     img: '/images/ig-6.jpg',
   },
   {
@@ -15,7 +15,7 @@ const steps = [
   {
     number: '03',
     title: 'Edge Finishing',
-    body: 'Raw edges are bevelled, burnished and sealed by hand — the detail that separates a leather product from a truly handcrafted one. This step alone takes longer than cutting.',
+    body: 'Raw edges are bevelled, burnished and sealed by hand. This step alone takes longer than cutting — it\'s what separates craft from manufacturing.',
     img: '/images/ig-4.jpg',
   },
   {
@@ -30,12 +30,13 @@ const steps = [
 <section id="craftsmanship" class="bg-void py-28 px-6 sm:px-12 lg:px-16 xl:px-24">
   <div class="max-w-7xl mx-auto">
 
-    <div class="flex items-center gap-3 mb-6">
-      <div class="h-px w-6 bg-caramel"></div>
+    <!-- Header -->
+    <div class="flex items-center gap-3 mb-6 anim-up">
+      <div class="h-px w-6 bg-caramel anim-line"></div>
       <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">The Process</p>
     </div>
 
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 anim-up">
       <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight max-w-md">
         Four steps.<br /><em class="text-caramel">No shortcuts.</em>
       </h2>
@@ -44,20 +45,62 @@ const steps = [
       </p>
     </div>
 
-    <!-- Steps -->
+    <!-- SVG Stitching animation -->
+    <div id="stitch-trigger" class="relative mb-20 flex items-center justify-center py-10">
+      <div class="w-full max-w-2xl mx-auto relative">
+        <!-- Label -->
+        <p class="text-center text-[10px] tracking-[0.3em] uppercase text-sand/25 mb-6">The signature stitch — hand-finished on every piece</p>
+        <!-- SVG leather mat with animated stitching -->
+        <div class="relative">
+          <svg
+            viewBox="0 0 640 280"
+            class="w-full"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Leather mat background -->
+            <rect x="0" y="0" width="640" height="280" rx="6" fill="#8C6239"/>
+            <!-- Subtle leather texture overlay -->
+            <rect x="0" y="0" width="640" height="280" rx="6" fill="url(#grain)" opacity="0.08"/>
+            <defs>
+              <filter id="grain">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+                <feColorMatrix type="saturate" values="0"/>
+              </filter>
+            </defs>
+            <!-- Animated stitch path (the actual hand-stitched border) -->
+            <rect
+              class="stitch-path"
+              x="18" y="18" width="604" height="244" rx="3"
+              fill="none"
+              stroke="rgba(251,249,246,0.7)"
+              stroke-width="1.5"
+              stroke-dasharray="6 5"
+              stroke-linecap="round"
+            />
+            <!-- Centre text -->
+            <text x="320" y="128" text-anchor="middle" font-family="Playfair Display, serif" font-size="22" fill="rgba(251,249,246,0.15)" letter-spacing="4">TURFAA ATELIER</text>
+            <text x="320" y="156" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(251,249,246,0.1)" letter-spacing="8">DUBAI · EST. 2026</text>
+          </svg>
+          <!-- Needle dot that follows the stitch -->
+          <div class="stitch-needle absolute w-3 h-3 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style="left:18px;top:18px;">
+            <div class="w-3 h-3 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step cards -->
     <div class="grid md:grid-cols-2 gap-px bg-white/5">
       {steps.map(step => (
-        <div class="bg-void group relative overflow-hidden flex flex-col">
-          <!-- Image -->
+        <div class="process-card bg-void group relative overflow-hidden flex flex-col">
           <div class="aspect-[4/3] overflow-hidden">
             <img
               src={step.img}
               alt={step.title}
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-50 group-hover:brightness-60"
+              class="anim-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-50 group-hover:brightness-60"
               loading="lazy"
             />
           </div>
-          <!-- Content overlaid at bottom -->
           <div class="p-8 border-t border-white/5 flex gap-6">
             <span class="font-serif text-5xl text-white/10 leading-none flex-shrink-0 select-none">
               {step.number}

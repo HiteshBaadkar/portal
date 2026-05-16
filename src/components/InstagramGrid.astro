@@ -1,11 +1,11 @@
 ---
 const posts = [
-  { src: '/images/ig-3.jpg', alt: 'Black leather desk mat and mouse pad lifestyle setup' },
-  { src: '/images/ig-4.jpg', alt: 'Caramel desk mat with books and MacBook' },
-  { src: '/images/ig-1.jpg', alt: 'Caramel leather desk mat flat lay' },
-  { src: '/images/ig-5.jpg', alt: 'Caramel desk mat with MacBook' },
-  { src: '/images/ig-6.jpg', alt: 'Leather craft tools — behind the scenes' },
-  { src: '/images/ig-2.jpg', alt: 'Turfaa Atelier brand' },
+  { src: '/images/ig-3.jpg', alt: 'Black leather desk mat and mouse pad lifestyle setup', url: 'https://www.instagram.com/p/DYSU1AtjGF7/' },
+  { src: '/images/ig-4.jpg', alt: 'Caramel desk mat with books and MacBook', url: 'https://www.instagram.com/p/DYSK0PxDEWc/' },
+  { src: '/images/ig-1.jpg', alt: 'Caramel leather desk mat flat lay', url: 'https://www.instagram.com/reels/DYRmvQ4MG13/' },
+  { src: '/images/ig-5.jpg', alt: 'Caramel desk mat with MacBook', url: 'https://www.instagram.com/reels/DYPOaYIM4_z/' },
+  { src: '/images/ig-6.jpg', alt: 'Leather craft tools — behind the scenes', url: 'https://www.instagram.com/reels/DYO9dUGsiDD/' },
+  { src: '/images/ig-2.jpg', alt: 'Turfaa Atelier brand', url: 'https://www.instagram.com/p/DYNYDMnMOoT/' },
 ];
 ---
 <section class="bg-void-2 py-20 px-6 sm:px-12 lg:px-16 xl:px-24">
@@ -29,7 +29,7 @@ const posts = [
     <div class="grid grid-cols-3 sm:grid-cols-6 gap-1.5 ig-grid">
       {posts.map(post => (
         <a
-          href="https://instagram.com/turfaa_atelier"
+          href={post.url}
           target="_blank"
           rel="noopener noreferrer"
           class="group relative overflow-hidden aspect-square block"

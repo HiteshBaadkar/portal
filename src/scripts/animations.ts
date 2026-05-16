@@ -74,58 +74,6 @@ export function initAnimations() {
     });
   });
 
-  // ── Process step cards ────────────────────────────────────────────
-  gsap.utils.toArray<HTMLElement>('.process-card').forEach((card, i) => {
-    gsap.from(card, {
-      y: 70,
-      opacity: 0,
-      duration: 0.9,
-      delay: i * 0.1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-
-  // ── SVG stitch animation ──────────────────────────────────────────
-  const stitchPath = document.querySelector<SVGPathElement>('.stitch-path');
-  if (stitchPath) {
-    const length = stitchPath.getTotalLength();
-    gsap.set(stitchPath, { strokeDasharray: length, strokeDashoffset: length });
-    gsap.to(stitchPath, {
-      strokeDashoffset: 0,
-      duration: 2.5,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: '#stitch-trigger',
-        start: 'top 70%',
-        toggleActions: 'play none none none',
-      },
-    });
-    // Needle dot follows the path
-    const needle = document.querySelector<HTMLElement>('.stitch-needle');
-    if (needle) {
-      gsap.to({ progress: 0 }, {
-        progress: 1,
-        duration: 2.5,
-        ease: 'power2.inOut',
-        onUpdate: function () {
-          const pt = stitchPath.getPointAtLength(this.targets()[0].progress * length);
-          needle.style.left = pt.x + 'px';
-          needle.style.top = pt.y + 'px';
-        },
-        scrollTrigger: {
-          trigger: '#stitch-trigger',
-          start: 'top 70%',
-          toggleActions: 'play none none none',
-        },
-      });
-    }
-  }
-
   // ── Instagram grid tiles pop in ───────────────────────────────────
   const igGrid = document.querySelector('.ig-grid');
   if (igGrid) {

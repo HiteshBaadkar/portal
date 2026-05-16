@@ -1,0 +1,65 @@
+---
+const faqs = [
+  {
+    q: 'What kind of leather is used?',
+    a: 'We work exclusively with real Italian cow hide leather, selected for its grain quality, durability, and natural character — designed to age beautifully and last for years.',
+  },
+  {
+    q: 'When will I receive my order?',
+    a: 'Orders placed before 2:00 PM are packaged and shipped the same day, delivered next day. Orders placed after 2:00 PM arrive within 2 days. Flat 10 AED shipping across the UAE.',
+  },
+  {
+    q: 'Where are the products made?',
+    a: 'Every piece is designed and handmade in Dubai by the founder herself — using premium top-grain Italian leather and the same techniques passed down from her uncle, a craftsman who worked with an Italian luxury fashion house.',
+  },
+  {
+    q: 'What is the return policy?',
+    a: 'Returns are accepted within 10 days of delivery. Items must be unused, in original condition, and in original packaging.',
+  },
+  {
+    q: 'Do you work with corporate clients?',
+    a: 'Yes — we work with corporate and private clients for bespoke pieces, gifting, and branded accessories. Reach out via WhatsApp or email to discuss your requirements.',
+  },
+];
+---
+<section class="bg-void-2 py-28 px-6 sm:px-12 lg:px-16 xl:px-24">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="grid lg:grid-cols-[1fr_2fr] gap-16 xl:gap-32">
+
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-6 bg-caramel"></div>
+          <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">Questions</p>
+        </div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight">
+          Common<br /><em class="text-caramel">questions.</em>
+        </h2>
+        <p class="mt-6 text-sand/40 text-sm leading-relaxed">
+          Anything else? Message us on WhatsApp — we reply within the hour.
+        </p>
+        <a
+          href="https://wa.me/971523244717"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-caramel hover:text-caramel-light transition-colors"
+        >
+          WhatsApp us →
+        </a>
+      </div>
+
+      <div class="divide-y divide-white/6">
+        {faqs.map(faq => (
+          <details class="group py-7 cursor-pointer list-none">
+            <summary class="flex items-center justify-between gap-8 text-white text-sm tracking-wide font-light list-none marker:hidden [&::-webkit-details-marker]:hidden">
+              {faq.q}
+              <span class="shrink-0 text-caramel transition-transform duration-300 group-open:rotate-45 text-lg leading-none">+</span>
+            </summary>
+            <p class="mt-5 text-sand/45 text-sm leading-relaxed font-light pr-8">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>

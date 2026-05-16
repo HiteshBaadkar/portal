@@ -26,6 +26,32 @@ const { title = 'Turfaa Atelier — Handcrafted Leather Desk Accessories, Dubai'
   <body class="bg-void text-sand font-sans antialiased">
     <slot />
 
+    <!-- Sticky Order Bar -->
+    <div id="sticky-order-bar"
+      class="fixed bottom-0 left-0 right-0 z-40 translate-y-full transition-transform duration-500 ease-in-out"
+    >
+      <div class="bg-void/95 backdrop-blur border-t border-white/8 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+            <div>
+              <p class="text-[9px] tracking-[0.2em] uppercase text-sand/30 mb-0.5">The Founders Set</p>
+              <p class="font-serif text-xl text-white">450 <span class="text-sm text-sand/40 font-sans font-light">AED</span> <span class="text-sand/25 text-sm line-through font-sans font-light ml-1">470</span></p>
+            </div>
+            <div class="hidden sm:block w-px h-8 bg-white/8"></div>
+            <p class="hidden sm:block text-[11px] text-sand/30 tracking-wider">Desk Mat + Mouse Pad · Next-Day Delivery</p>
+          </div>
+          <a
+            href="https://wa.me/971523244717?text=Hi!%20I'd%20like%20to%20order%20The%20Complete%20Founders%20Set"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-caramel text-white px-6 py-3 text-[10px] tracking-[0.18em] uppercase hover:bg-caramel-light transition-colors whitespace-nowrap shrink-0"
+          >
+            Order via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- WhatsApp FAB -->
     <a
       href="https://wa.me/971523244717"
@@ -41,7 +67,23 @@ const { title = 'Turfaa Atelier — Handcrafted Leather Desk Accessories, Dubai'
 
     <script>
       import { initAnimations } from '../scripts/animations';
-      document.addEventListener('DOMContentLoaded', () => initAnimations());
+      document.addEventListener('DOMContentLoaded', () => {
+        initAnimations();
+
+        // Sticky order bar — appears after scrolling past hero
+        const bar = document.getElementById('sticky-order-bar');
+        const hero = document.querySelector<HTMLElement>('main > *:first-child');
+        if (bar && hero) {
+          const io = new IntersectionObserver(([e]) => {
+            if (!e.isIntersecting) {
+              bar.classList.remove('translate-y-full');
+            } else {
+              bar.classList.add('translate-y-full');
+            }
+          }, { threshold: 0 });
+          io.observe(hero);
+        }
+      });
     </script>
   </body>
 </html>

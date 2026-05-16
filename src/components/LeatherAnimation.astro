@@ -1,0 +1,273 @@
+---
+---
+<section class="bg-void-2 py-28 px-6 sm:px-12 lg:px-16 xl:px-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="flex items-center gap-3 mb-6 anim-up">
+      <div class="h-px w-6 bg-caramel anim-line"></div>
+      <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">Handcrafted</p>
+    </div>
+    <h2 class="font-serif text-4xl sm:text-5xl text-white mb-16 anim-up">
+      From hide to desk,<br /><em class="text-caramel">by hand.</em>
+    </h2>
+
+    <!-- Animation stage -->
+    <div class="relative w-full max-w-3xl mx-auto">
+
+      <!-- Step labels that cycle -->
+      <div class="flex justify-center gap-2 mb-10">
+        {['Selection', 'Cutting', 'Stitching', 'Finished'].map((label, i) => (
+          <div
+            class={`step-label-${i} text-[10px] tracking-[0.2em] uppercase px-4 py-2 border transition-all duration-500`}
+            style={`animation: stepLabel 8s ease-in-out infinite; animation-delay: ${i * 2}s`}
+          >
+            {label}
+          </div>
+        ))}
+      </div>
+
+      <!-- The SVG animation -->
+      <div class="relative aspect-[16/9] bg-void rounded-sm overflow-hidden">
+        <svg
+          viewBox="0 0 800 450"
+          class="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <!-- Leather texture filter -->
+            <filter id="leather-texture" x="0%" y="0%" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" seed="2" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            <!-- Glow filter -->
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <!-- Clip for cut reveal -->
+            <clipPath id="mat-clip">
+              <rect class="clip-rect" x="200" y="100" width="0" height="250" rx="4"/>
+            </clipPath>
+          </defs>
+
+          <!-- ── SCENE 1: Raw leather hide ── -->
+          <g class="scene-hide">
+            <!-- Irregular hide shape -->
+            <path
+              d="M 120 80 C 160 40 260 30 340 60 C 420 85 500 50 580 90 C 650 125 690 190 670 260 C 650 330 600 380 520 400 C 430 420 340 410 260 390 C 180 370 100 320 90 250 C 78 180 80 120 120 80 Z"
+              fill="#6B4A2A"
+              filter="url(#leather-texture)"
+              opacity="0.9"
+            />
+            <!-- Hide grain lines -->
+            <path d="M 200 150 C 280 140 380 160 450 150" fill="none" stroke="#8C6239" stroke-width="1" opacity="0.4"/>
+            <path d="M 160 210 C 260 195 380 215 500 205" fill="none" stroke="#8C6239" stroke-width="1" opacity="0.4"/>
+            <path d="M 180 270 C 290 255 400 275 520 265" fill="none" stroke="#8C6239" stroke-width="1" opacity="0.4"/>
+            <!-- "Italian leather" stamp -->
+            <text x="380" y="235" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="rgba(251,249,246,0.25)" letter-spacing="4">FULL GRAIN ITALIAN</text>
+          </g>
+
+          <!-- ── SCENE 2: Cutting lines appear ── -->
+          <g class="scene-cut">
+            <!-- Cutting guide rectangle drawn on the hide -->
+            <rect
+              class="cut-guide"
+              x="200" y="100" width="400" height="250" rx="4"
+              fill="none"
+              stroke="#FBF9F6"
+              stroke-width="1.5"
+              stroke-dasharray="1200"
+              stroke-dashoffset="1200"
+            />
+            <!-- Cutting knife icon -->
+            <g class="knife" transform="translate(200, 100)">
+              <line x1="0" y1="0" x2="20" y2="20" stroke="#FBF9F6" stroke-width="2" stroke-linecap="round"/>
+              <polygon points="-4,-4 4,-4 0,8" fill="#FBF9F6" transform="rotate(-45)"/>
+            </g>
+          </g>
+
+          <!-- ── SCENE 3: Mat emerges ── -->
+          <g class="scene-mat">
+            <!-- The mat, clipped to reveal -->
+            <g clip-path="url(#mat-clip)">
+              <rect x="200" y="100" width="400" height="250" rx="4" fill="#8C6239" filter="url(#leather-texture)"/>
+              <!-- Subtle grain -->
+              <rect x="200" y="100" width="400" height="250" rx="4" fill="none" stroke="#7A5530" stroke-width="0.5" opacity="0.3"/>
+            </g>
+          </g>
+
+          <!-- ── SCENE 4: Stitching ── -->
+          <g class="scene-stitch">
+            <!-- Stitch border inside the mat -->
+            <rect
+              class="final-stitch"
+              x="218" y="118" width="364" height="214" rx="3"
+              fill="none"
+              stroke="rgba(251,249,246,0.75)"
+              stroke-width="1.5"
+              stroke-dasharray="6 5"
+              stroke-dashoffset="1200"
+              stroke-linecap="round"
+            />
+            <!-- Turfaa wordmark on finished mat -->
+            <text class="mat-brand" x="400" y="228" text-anchor="middle" font-family="Playfair Display, serif" font-size="18" fill="rgba(251,249,246,0)" letter-spacing="6">TURFAA</text>
+            <text class="mat-origin" x="400" y="248" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(251,249,246,0)" letter-spacing="6">ATELIER · DUBAI</text>
+          </g>
+
+          <!-- ── Needle dot ── -->
+          <circle class="needle-dot" cx="218" cy="118" r="4" fill="white" filter="url(#glow)" opacity="0"/>
+
+        </svg>
+
+        <!-- Shimmer overlay on finished state -->
+        <div class="shimmer-overlay absolute inset-0 pointer-events-none opacity-0"
+          style="background: linear-gradient(105deg, transparent 40%, rgba(140,98,57,0.15) 50%, transparent 60%); background-size: 200% 100%;">
+        </div>
+      </div>
+
+      <!-- Bottom caption -->
+      <p class="text-center text-sand/25 text-xs tracking-widest uppercase mt-6">
+        Every piece · Made in Dubai · Italian Leather
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Scene sequencing (8s loop: 2s per scene) ── */
+
+  /* Scene 1: Hide — visible 0–2.5s */
+  .scene-hide {
+    animation: hideScene 8s ease-in-out infinite;
+  }
+  @keyframes hideScene {
+    0%   { opacity: 0; transform: scale(0.95); }
+    5%   { opacity: 1; transform: scale(1); }
+    28%  { opacity: 1; }
+    35%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  /* Scene 2: Cut guide appears 2–4s */
+  .scene-cut {
+    animation: cutScene 8s ease-in-out infinite;
+  }
+  @keyframes cutScene {
+    0%   { opacity: 0; }
+    28%  { opacity: 0; }
+    33%  { opacity: 1; }
+    55%  { opacity: 1; }
+    62%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  /* Cut guide line draws */
+  .cut-guide {
+    animation: drawCut 8s ease-in-out infinite;
+  }
+  @keyframes drawCut {
+    0%   { stroke-dashoffset: 1200; }
+    30%  { stroke-dashoffset: 1200; }
+    55%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* Knife moves along top edge */
+  .knife {
+    animation: knifeMove 8s ease-in-out infinite;
+  }
+  @keyframes knifeMove {
+    0%   { transform: translate(200px, 100px); opacity: 0; }
+    30%  { transform: translate(200px, 100px); opacity: 0; }
+    33%  { opacity: 1; }
+    53%  { transform: translate(600px, 100px); opacity: 1; }
+    57%  { opacity: 0; }
+    100% { transform: translate(200px, 100px); opacity: 0; }
+  }
+
+  /* Scene 3: Mat wipe reveal 4–6s */
+  .clip-rect {
+    animation: clipWipe 8s ease-in-out infinite;
+  }
+  @keyframes clipWipe {
+    0%   { width: 0; }
+    53%  { width: 0; }
+    70%  { width: 400px; }
+    100% { width: 400px; }
+  }
+
+  /* Scene 4: Stitching 6–8s */
+  .scene-stitch {
+    animation: stitchFade 8s ease-in-out infinite;
+  }
+  @keyframes stitchFade {
+    0%, 65% { opacity: 0; }
+    72%     { opacity: 1; }
+    95%     { opacity: 1; }
+    100%    { opacity: 0; }
+  }
+
+  .final-stitch {
+    animation: drawStitch 8s ease-in-out infinite;
+  }
+  @keyframes drawStitch {
+    0%, 65% { stroke-dashoffset: 1200; }
+    90%     { stroke-dashoffset: 0; }
+    100%    { stroke-dashoffset: 0; }
+  }
+
+  /* Needle dot follows stitch path */
+  .needle-dot {
+    animation: needleMove 8s ease-in-out infinite;
+    offset-path: path('M 218 118 L 582 118 L 582 332 L 218 332 Z');
+    offset-distance: 0%;
+  }
+  @keyframes needleMove {
+    0%, 65% { opacity: 0; offset-distance: 0%; }
+    67%     { opacity: 1; }
+    90%     { offset-distance: 100%; opacity: 1; }
+    93%     { opacity: 0; }
+    100%    { opacity: 0; offset-distance: 0%; }
+  }
+
+  /* Brand text fades in on finished mat */
+  .mat-brand {
+    animation: brandFade 8s ease-in-out infinite;
+  }
+  @keyframes brandFade {
+    0%, 80%  { fill: rgba(251,249,246,0); }
+    92%      { fill: rgba(251,249,246,0.2); }
+    95%      { fill: rgba(251,249,246,0); }
+    100%     { fill: rgba(251,249,246,0); }
+  }
+  .mat-origin {
+    animation: brandFade 8s ease-in-out infinite;
+    animation-delay: 0.1s;
+  }
+
+  /* Shimmer on finish */
+  .shimmer-overlay {
+    animation: shimmer 8s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 82%  { opacity: 0; background-position: -100% 0; }
+    87%      { opacity: 1; background-position: 200% 0; }
+    93%      { opacity: 0; }
+    100%     { opacity: 0; }
+  }
+
+  /* Step labels */
+  .step-label-0 { animation: stepActive 8s ease-in-out infinite; animation-delay: 0s; }
+  .step-label-1 { animation: stepActive 8s ease-in-out infinite; animation-delay: 2s; }
+  .step-label-2 { animation: stepActive 8s ease-in-out infinite; animation-delay: 4s; }
+  .step-label-3 { animation: stepActive 8s ease-in-out infinite; animation-delay: 6s; }
+
+  @keyframes stepActive {
+    0%   { border-color: rgba(140,98,57,1); color: rgba(140,98,57,1); }
+    20%  { border-color: rgba(140,98,57,1); color: rgba(140,98,57,1); }
+    25%  { border-color: rgba(255,255,255,0.1); color: rgba(154,145,137,0.4); }
+    95%  { border-color: rgba(255,255,255,0.1); color: rgba(154,145,137,0.4); }
+    100% { border-color: rgba(140,98,57,1); color: rgba(140,98,57,1); }
+  }
+</style>

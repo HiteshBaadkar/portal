@@ -11,15 +11,6 @@
       From hide to desk,<br /><em class="text-caramel">by hand.</em>
     </h2>
 
-    <!-- Step labels -->
-    <div class="flex justify-center gap-2 mb-10">
-      {['Selection', 'Cutting', 'Stitching', 'Finished'].map((label, i) => (
-        <div id={`step-${i}`}
-          class="text-[10px] tracking-[0.2em] uppercase px-4 py-2 border border-white/10 text-sand/30 transition-all duration-500"
-        >{label}</div>
-      ))}
-    </div>
-
     <!-- SVG stage -->
     <div class="w-full max-w-3xl mx-auto">
       <div class="aspect-[16/9] bg-void rounded-sm overflow-hidden relative">
@@ -86,6 +77,15 @@
       <p class="text-center text-sand/25 text-xs tracking-widest uppercase mt-6">
         Every piece · Made in Dubai · Italian Leather
       </p>
+
+      <!-- Step labels -->
+      <div class="flex justify-center gap-2 mt-8">
+        {['Selection', 'Cutting', 'Stitching', 'Finished'].map((label, i) => (
+          <div id={`step-${i}`}
+            class="text-[10px] tracking-[0.2em] uppercase px-4 py-2 border border-white/10 text-sand/30 transition-all duration-500"
+          >{label}</div>
+        ))}
+      </div>
     </div>
 
   </div>

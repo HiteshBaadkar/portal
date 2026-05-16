@@ -70,6 +70,16 @@ const faqs = [
 </section>
 
 <script>
+  const list = document.getElementById('faq-list') as HTMLElement;
+  const bodies = list.querySelectorAll<HTMLElement>('.faq-body');
+
+  // Expand all, measure full height, then collapse — lock that height
+  bodies.forEach(b => { b.style.transition = 'none'; b.style.maxHeight = b.scrollHeight + 'px'; });
+  requestAnimationFrame(() => {
+    list.style.minHeight = list.scrollHeight + 'px';
+    bodies.forEach(b => { b.style.maxHeight = '0'; b.style.transition = ''; });
+  });
+
   document.querySelectorAll<HTMLElement>('.faq-item').forEach(item => {
     const btn = item.querySelector<HTMLButtonElement>('.faq-btn')!;
     const body = item.querySelector<HTMLElement>('.faq-body')!;
@@ -85,7 +95,7 @@ const faqs = [
         (other.querySelector('.faq-icon') as HTMLElement).style.transform = 'rotate(0deg)';
       });
 
-      // Open this one if it was closed
+      // Open clicked if it was closed
       if (!isOpen) {
         btn.setAttribute('aria-expanded', 'true');
         body.style.maxHeight = body.scrollHeight + 'px';

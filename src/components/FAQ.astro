@@ -27,7 +27,7 @@ const faqs = [
 
     <div class="flex items-center gap-3 mb-14">
       <div class="h-px w-6 bg-caramel"></div>
-      <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">Questions</p>
+      <p class="text-caramel text-xs tracking-[0.25em] uppercase">Questions</p>
     </div>
 
     <div class="grid lg:grid-cols-2 gap-0 border border-white/6">
@@ -40,7 +40,7 @@ const faqs = [
             data-index={String(i)}
             aria-selected={i === 0 ? 'true' : 'false'}
           >
-            <span class="text-sm font-light tracking-wide text-sand/50 group-[&[aria-selected=true]]:text-white transition-colors duration-200">{faq.q}</span>
+            <span class="text-base font-light tracking-wide text-sand/50 group-[&[aria-selected=true]]:text-white transition-colors duration-200">{faq.q}</span>
             <span class="shrink-0 w-1.5 h-1.5 rounded-full bg-caramel opacity-0 group-[&[aria-selected=true]]:opacity-100 transition-opacity duration-200"></span>
           </button>
         ))}
@@ -55,12 +55,12 @@ const faqs = [
             aria-hidden={i !== 0 ? 'true' : 'false'}
             style={i !== 0 ? 'opacity:0;pointer-events:none' : ''}
           >
-            <p class="text-sand/55 text-sm leading-relaxed font-light">{faq.a}</p>
+            <p class="text-sand/55 text-base leading-relaxed font-light">{faq.a}</p>
             <a
               href="https://wa.me/971523244717"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-8 inline-flex items-center gap-2 text-[10px] tracking-[0.18em] uppercase text-caramel hover:text-caramel-light transition-colors self-start"
+              class="mt-8 inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-caramel hover:text-caramel-light transition-colors self-start"
             >
               Ask us on WhatsApp →
             </a>

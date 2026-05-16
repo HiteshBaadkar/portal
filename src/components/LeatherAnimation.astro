@@ -1,172 +1,197 @@
 ---
 ---
-<section class="bg-void-2 py-28 px-6 sm:px-12 lg:px-16 xl:px-24 overflow-hidden">
+<section class="bg-void py-20 px-6 sm:px-12 lg:px-16 xl:px-24 overflow-hidden">
   <div class="max-w-7xl mx-auto">
+    <div class="w-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" class="w-full h-auto">
+        <defs>
+          <linearGradient id="studioBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#121418"/>
+            <stop offset="100%" stop-color="#08090b"/>
+          </linearGradient>
+          <linearGradient id="turfaaTan" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#b86d3f"/>
+            <stop offset="50%" stop-color="#995026"/>
+            <stop offset="100%" stop-color="#733614"/>
+          </linearGradient>
+          <linearGradient id="rawHideEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8c4f2b"/>
+            <stop offset="100%" stop-color="#592e16"/>
+          </linearGradient>
+          <linearGradient id="carbonSteel" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="30%" stop-color="#858b94"/>
+            <stop offset="100%" stop-color="#33373d"/>
+          </linearGradient>
+          <filter id="heavyShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+          </filter>
+          <filter id="toolShadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="4" dy="8" stdDeviation="5" flood-color="#000000" flood-opacity="0.5"/>
+          </filter>
+          <style>{`
+            .la2-brand-title { font-family: "Times New Roman", Times, serif; font-size: 24px; fill: #e5e7eb; letter-spacing: 5px; text-anchor: middle; font-weight: 300; }
+            .la2-brand-sub { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9px; fill: #6b7280; letter-spacing: 4px; text-anchor: middle; font-weight: 500; }
+            .la2-tagline { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 11px; fill: #9ca3af; letter-spacing: 3px; text-anchor: middle; font-weight: 400; }
+            .la2-step-num { font-family: "Times New Roman", Times, serif; font-size: 14px; fill: #4b5563; font-style: italic; }
+            .la2-step-title { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 12px; fill: #f3f4f6; letter-spacing: 2px; font-weight: 600; }
+            .la2-step-body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 10px; fill: #9ca3af; font-weight: 400; opacity: 0.85; }
+            .la2-grid-box { stroke: #1f2937; stroke-width: 1; fill: none; }
+            .la2-grid-dash { stroke: #374151; stroke-width: 1; stroke-dasharray: 4 6; opacity: 0.3; }
+            .la2-magnifier { animation: la2LoopScan 5s ease-in-out infinite; }
+            @keyframes la2LoopScan {
+              0%, 100% { transform: translate(0, 0); }
+              33% { transform: translate(45px, 25px); }
+              66% { transform: translate(-20px, 45px); }
+            }
+            .la2-craft-knife { animation: la2ManualCut 4s ease-in-out infinite; }
+            .la2-cut-seam { stroke-dasharray: 140; stroke-dashoffset: 140; animation: la2RevealCut 4s ease-in-out infinite; }
+            @keyframes la2ManualCut {
+              0% { transform: translate(30px, 95px) rotate(-15deg); opacity: 0; }
+              10% { opacity: 1; transform: translate(30px, 95px) rotate(5deg); }
+              75% { transform: translate(165px, 155px) rotate(10deg); opacity: 1; }
+              85%, 100% { transform: translate(165px, 155px) rotate(30deg); opacity: 0; }
+            }
+            @keyframes la2RevealCut {
+              0%, 10% { stroke-dashoffset: 140; }
+              75%, 100% { stroke-dashoffset: 0; }
+            }
+            .la2-burnisher { animation: la2FrictionRub 1.5s ease-in-out infinite; }
+            .la2-burnished-glow { animation: la2EdgePolished 3s ease-in-out infinite; }
+            @keyframes la2FrictionRub {
+              0%, 100% { transform: translateX(0); }
+              50% { transform: translateX(35px); }
+            }
+            @keyframes la2EdgePolished {
+              0%, 100% { stroke: #542507; stroke-width: 1.5; }
+              50% { stroke: #d4af37; stroke-width: 2; }
+            }
+            .la2-needle-a { animation: la2StitchPassA 3.5s ease-in-out infinite; }
+            .la2-needle-b { animation: la2StitchPassB 3.5s ease-in-out infinite; }
+            .la2-french-stitches { stroke-dasharray: 150; stroke-dashoffset: 150; animation: la2ApplyStitches 3.5s ease-in-out infinite; }
+            @keyframes la2StitchPassA {
+              0%, 100% { transform: translate(45px, 125px) rotate(35deg); }
+              40%, 65% { transform: translate(85px, 125px) rotate(0deg); }
+            }
+            @keyframes la2StitchPassB {
+              0%, 100% { transform: translate(135px, 125px) rotate(35deg); }
+              45%, 60% { transform: translate(85px, 125px) rotate(-80deg); }
+            }
+            @keyframes la2ApplyStitches {
+              0%, 20% { stroke-dashoffset: 150; }
+              80%, 100% { stroke-dashoffset: 0; }
+            }
+          `}</style>
+        </defs>
 
-    <div class="flex items-center gap-3 mb-6 anim-up">
-      <div class="h-px w-6 bg-caramel"></div>
-      <p class="text-caramel text-[11px] tracking-[0.25em] uppercase">Handcrafted</p>
+        <rect width="100%" height="100%" fill="url(#studioBg)"/>
+
+        <!-- Brand Header -->
+        <g transform="translate(500, 65)">
+          <text y="0" class="la2-brand-title">TURFAA ATELIER</text>
+          <text y="18" class="la2-brand-sub">DUBAI · EST. 2026</text>
+          <line x1="-140" y1="36" x2="140" y2="36" stroke="#2d3139" stroke-width="1.5"/>
+          <text y="54" class="la2-tagline">THE SIGNATURE STITCH — HAND-FINISHED ON EVERY PIECE</text>
+          <text y="70" class="la2-brand-sub" fill="#4b5563">EVERY PIECE PASSES THROUGH THE SAME FOUR STAGES — IN THE SAME DUBAI ATELIER, BY THE SAME HANDS.</text>
+        </g>
+
+        <!-- Stage 1: Leather Selection -->
+        <g transform="translate(60, 180)">
+          <rect width="410" height="210" class="la2-grid-box"/>
+          <line x1="30" y1="0" x2="30" y2="210" class="la2-grid-dash"/>
+          <line x1="0" y1="165" x2="410" y2="165" class="la2-grid-dash"/>
+          <text x="50" y="32" class="la2-step-num">I.</text>
+          <text x="80" y="32" class="la2-step-title">LEATHER SELECTION</text>
+          <text x="50" y="185" class="la2-step-body">Every hide is hand-picked from our Italian tannery — inspected for grain</text>
+          <text x="50" y="200" class="la2-step-body">consistency, thickness, and natural character before a single cut is made.</text>
+          <g transform="translate(160, 25)">
+            <path d="M 20,20 C 50,15 90,30 130,20 C 180,10 210,35 210,65 C 210,105 185,125 150,120 C 110,115 60,135 25,115 C -5,95 0,30 20,20 Z"
+                  fill="url(#turfaaTan)" filter="url(#heavyShadow)"/>
+            <path d="M 45,45 C 55,48 65,42 75,50 M 110,60 C 120,58 125,68 135,62 M 85,90 C 92,100 105,95 115,102"
+                  fill="none" stroke="#542507" stroke-width="1" opacity="0.4"/>
+            <g class="la2-magnifier" transform="translate(75, 45)" filter="url(#toolShadow)">
+              <line x1="14" y1="14" x2="38" y2="38" stroke="url(#carbonSteel)" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="0" cy="0" r="22" fill="none" stroke="url(#carbonSteel)" stroke-width="3"/>
+              <circle cx="0" cy="0" r="20" fill="#ffffff" opacity="0.12"/>
+              <circle cx="0" cy="0" r="19" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.5"/>
+              <path d="M -12,-12 A 16 16 0 0 1 -2,-15" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- Stage 2: Hand Cutting -->
+        <g transform="translate(530, 180)">
+          <rect width="410" height="210" class="la2-grid-box"/>
+          <line x1="30" y1="0" x2="30" y2="210" class="la2-grid-dash"/>
+          <line x1="0" y1="165" x2="410" y2="165" class="la2-grid-dash"/>
+          <text x="50" y="32" class="la2-step-num">II.</text>
+          <text x="85" y="32" class="la2-step-title">HAND CUTTING</text>
+          <text x="50" y="185" class="la2-step-body">Each mat is measured and cut by hand using precision tools. No laser,</text>
+          <text x="50" y="200" class="la2-step-body">no die — just craft knives and a steady hand, ensuring clean edges every time.</text>
+          <g transform="translate(100, 20)">
+            <rect x="30" y="25" width="190" height="110" rx="2" fill="#20130b" opacity="0.6"/>
+            <rect x="30" y="25" width="150" height="110" rx="4" fill="url(#turfaaTan)" filter="url(#heavyShadow)"/>
+            <path class="la2-cut-seam" d="M 180,25 L 180,135" fill="none" stroke="#121418" stroke-width="2"/>
+            <line x1="25" y1="125" x2="195" y2="125" stroke="#fff" stroke-width="1.5" opacity="0.15"/>
+            <g class="la2-craft-knife" transform="translate(180, 25)" filter="url(#toolShadow)">
+              <polygon points="0,0 -8,-35 -3,-55 3,-55 3,0" fill="url(#carbonSteel)"/>
+              <polygon points="0,0 2,-25 3,-55 0,-55" fill="#ffffff" opacity="0.4"/>
+              <rect x="-4" y="-105" width="8" height="50" rx="1" fill="#111317"/>
+              <circle cx="0" cy="-100" r="1.5" fill="#d4af37"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- Stage 3: Edge Finishing -->
+        <g transform="translate(60, 420)">
+          <rect width="410" height="210" class="la2-grid-box"/>
+          <line x1="30" y1="0" x2="30" y2="210" class="la2-grid-dash"/>
+          <line x1="0" y1="165" x2="410" y2="165" class="la2-grid-dash"/>
+          <text x="50" y="32" class="la2-step-num">III.</text>
+          <text x="95" y="32" class="la2-step-title">EDGE FINISHING</text>
+          <text x="50" y="185" class="la2-step-body">Raw edges are bevelled, burnished and sealed by hand. This step alone</text>
+          <text x="50" y="200" class="la2-step-body">takes longer than cutting — it's what separates craft from manufacturing.</text>
+          <g transform="translate(100, 30)">
+            <path d="M 30,75 L 210,75 C 220,75 225,82 223,90 L 220,105 L 30,105 Z" fill="url(#turfaaTan)" filter="url(#heavyShadow)"/>
+            <path d="M 30,75 L 210,75" stroke="url(#rawHideEdge)" stroke-width="4"/>
+            <line class="la2-burnished-glow" x1="100" y1="75" x2="195" y2="75" stroke-linecap="round"/>
+            <g class="la2-burnisher" transform="translate(110, 45)" filter="url(#toolShadow)">
+              <path d="M 0,0 C -8,0 -12,12 -12,25 C -12,32 -6,35 0,35 C 6,35 12,32 12,25 C 12,12 8,0 0,0 Z" fill="#3a1d0d"/>
+              <rect x="-10" y="35" width="20" height="22" fill="#2b1408"/>
+              <line x1="-12" y1="42" x2="12" y2="42" stroke="#160a04" stroke-width="3"/>
+              <line x1="-12" y1="50" x2="12" y2="50" stroke="#160a04" stroke-width="2"/>
+              <line x1="-12" y1="56" x2="12" y2="56" stroke="#160a04" stroke-width="4"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- Stage 4: Final Assembly -->
+        <g transform="translate(530, 420)">
+          <rect width="410" height="210" class="la2-grid-box"/>
+          <line x1="30" y1="0" x2="30" y2="210" class="la2-grid-dash"/>
+          <line x1="0" y1="165" x2="410" y2="165" class="la2-grid-dash"/>
+          <text x="50" y="32" class="la2-step-num">IV.</text>
+          <text x="90" y="32" class="la2-step-title">FINAL ASSEMBLY</text>
+          <text x="50" y="185" class="la2-step-body">The mat is stitched, inspected under direct light, and cleared for dispatch.</text>
+          <text x="50" y="200" class="la2-step-body">If anything is off, it goes back. Every piece shipped is one the founder keeps.</text>
+          <g transform="translate(100, 30)">
+            <rect x="25" y="20" width="190" height="100" rx="10" fill="url(#turfaaTan)" filter="url(#heavyShadow)"/>
+            <rect x="32" y="27" width="176" height="86" rx="6" fill="none" stroke="#542507" stroke-width="1.5" opacity="0.6"/>
+            <path class="la2-french-stitches" d="M 40,36 L 52,36 L 64,36 L 76,36 L 88,36 L 100,36 L 112,36 L 124,36 L 136,36 L 148,36 L 160,36 L 172,36 L 184,36"
+                  fill="none" stroke="#fcfaf2" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 4"/>
+            <g transform="translate(0, -20)">
+              <g class="la2-needle-a" transform="translate(60, 60)">
+                <line x1="0" y1="0" x2="-35" y2="-35" stroke="#b0b5bc" stroke-width="1.2"/>
+                <path d="M -32,-32 Q -55,-40 -45,-15 Q -35,10 0,0" fill="none" stroke="#fcfaf2" stroke-width="1.2" opacity="0.8"/>
+              </g>
+              <g class="la2-needle-b" transform="translate(110, 60)">
+                <line x1="0" y1="0" x2="35" y2="35" stroke="#787e87" stroke-width="1.2"/>
+                <path d="M 32,32 Q 55,40 45,15 Q 35,-10 0,0" fill="none" stroke="#eedc82" stroke-width="1" opacity="0.5"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
     </div>
-    <h2 class="font-serif text-4xl sm:text-5xl text-white mb-16 anim-up">
-      From hide to desk,<br /><em class="text-caramel">by hand.</em>
-    </h2>
-
-    <!-- SVG stage -->
-    <div class="w-full max-w-3xl mx-auto">
-      <div class="aspect-[16/9] bg-void rounded-sm overflow-hidden relative">
-        <svg id="la-svg" viewBox="0 0 800 450" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="la-tex">
-              <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" seed="3"/>
-              <feDisplacementMap in="SourceGraphic" scale="6" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-            <filter id="la-glow">
-              <feGaussianBlur stdDeviation="5" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <clipPath id="la-clip">
-              <rect id="la-clip-rect" x="180" y="90" width="0" height="270" rx="4"/>
-            </clipPath>
-          </defs>
-
-          <!-- Hide (scene 1) -->
-          <g id="la-hide" opacity="0">
-            <path d="M 110 75 C 165 32 275 22 365 56 C 448 88 515 42 595 86 C 668 128 705 198 682 268 C 658 338 600 388 516 408 C 424 428 328 418 246 394 C 162 370 90 320 80 248 C 68 172 62 118 110 75 Z"
-              fill="#7A5530" filter="url(#la-tex)"/>
-            <path d="M 185 168 C 295 155 415 172 495 162" fill="none" stroke="#9B6B3E" stroke-width="1.2" opacity="0.5"/>
-            <path d="M 155 228 C 272 212 412 230 542 220" fill="none" stroke="#9B6B3E" stroke-width="1.2" opacity="0.5"/>
-            <path d="M 168 288 C 292 272 420 290 550 280" fill="none" stroke="#9B6B3E" stroke-width="1.2" opacity="0.5"/>
-            <text x="400" y="245" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(251,249,246,0.22)" letter-spacing="5">FULL GRAIN ITALIAN</text>
-          </g>
-
-          <!-- Cut guide line (scene 2) -->
-          <g id="la-cut" opacity="0">
-            <path d="M 110 75 C 165 32 275 22 365 56 C 448 88 515 42 595 86 C 668 128 705 198 682 268 C 658 338 600 388 516 408 C 424 428 328 418 246 394 C 162 370 90 320 80 248 C 68 172 62 118 110 75 Z"
-              fill="#7A5530" opacity="0.4" filter="url(#la-tex)"/>
-            <rect id="la-guide" x="180" y="90" width="440" height="270" rx="4"
-              fill="none" stroke="rgba(251,249,246,0.85)" stroke-width="2"
-              stroke-dasharray="1500" stroke-dashoffset="1500"/>
-            <!-- Knife dot that travels the top edge -->
-            <circle id="la-knife" cx="180" cy="90" r="7"
-              fill="#FBF9F6" filter="url(#la-glow)" opacity="0"/>
-          </g>
-
-          <!-- Mat reveal via clip (scene 3+) -->
-          <g clip-path="url(#la-clip)">
-            <rect x="180" y="90" width="440" height="270" rx="4" fill="#8C6239" filter="url(#la-tex)"/>
-            <rect x="180" y="90" width="440" height="270" rx="4" fill="rgba(0,0,0,0.06)"/>
-          </g>
-
-          <!-- Stitch + brand (scene 4) -->
-          <g id="la-stitch" opacity="0">
-            <rect id="la-stitch-rect" x="198" y="108" width="404" height="234" rx="3"
-              fill="none" stroke="rgba(251,249,246,0.8)" stroke-width="1.5"
-              stroke-dasharray="7 5" stroke-dashoffset="1500" stroke-linecap="round"/>
-            <circle id="la-needle" cx="198" cy="108" r="5"
-              fill="white" filter="url(#la-glow)" opacity="0"/>
-            <text id="la-brand" x="400" y="232" text-anchor="middle"
-              font-family="Playfair Display,serif" font-size="20"
-              fill="rgba(251,249,246,0)" letter-spacing="7">TURFAA</text>
-            <text id="la-sub" x="400" y="254" text-anchor="middle"
-              font-family="DM Sans,sans-serif" font-size="9"
-              fill="rgba(251,249,246,0)" letter-spacing="6">ATELIER · DUBAI</text>
-          </g>
-
-        </svg>
-      </div>
-      <p class="text-center text-sand/25 text-xs tracking-widest uppercase mt-6">
-        Every piece · Made in Dubai · Italian Leather
-      </p>
-
-      <!-- Step labels -->
-      <div class="flex justify-center gap-2 mt-8">
-        {['Selection', 'Cutting', 'Stitching', 'Finished'].map((label, i) => (
-          <div id={`step-${i}`}
-            class="text-[10px] tracking-[0.2em] uppercase px-4 py-2 border border-white/10 text-sand/30 transition-all duration-500"
-          >{label}</div>
-        ))}
-      </div>
-    </div>
-
   </div>
 </section>
-
-<script>
-  import { gsap } from 'gsap';
-
-  const PERIMETER = 1500;
-
-  function activateStep(n: number) {
-    for (let i = 0; i < 4; i++) {
-      const el = document.getElementById(`step-${i}`);
-      if (!el) continue;
-      el.style.borderColor = i === n ? '#8C6239' : 'rgba(255,255,255,0.1)';
-      el.style.color       = i === n ? '#8C6239' : 'rgba(154,145,137,0.3)';
-    }
-  }
-
-  function buildTimeline() {
-    const tl = gsap.timeline({ repeat: -1 });
-
-    // ── Scene 1: Hide ──────────────────────────────────────────────
-    tl.add(() => activateStep(0))
-      .to('#la-hide', { opacity: 1, duration: 0.7, ease: 'power2.out' })
-      .to('#la-hide', { opacity: 1, duration: 1.5 })           // hold
-      .to('#la-hide', { opacity: 0, duration: 0.5 });
-
-    // ── Scene 2: Cutting ───────────────────────────────────────────
-    tl.add(() => activateStep(1))
-      .to('#la-cut', { opacity: 1, duration: 0.4 }, '<')
-      // draw the guide rectangle
-      .to('#la-guide', { attr: { strokeDashoffset: 0 }, duration: 2.0, ease: 'power2.inOut' })
-      // knife dot travels across the top edge (180→620 x, stays at y=90)
-      .to('#la-knife', { opacity: 1, duration: 0.2 }, '<')
-      .to('#la-knife', { attr: { cx: 620 }, duration: 0.55, ease: 'none' }, '<')
-      .to('#la-knife', { attr: { cy: 360 }, duration: 0.35, ease: 'none' })
-      .to('#la-knife', { attr: { cx: 180 }, duration: 0.55, ease: 'none' })
-      .to('#la-knife', { attr: { cy: 90 },  duration: 0.35, ease: 'none' })
-      .to('#la-knife', { opacity: 0, duration: 0.2 })
-      .to('#la-cut',   { opacity: 0, duration: 0.4 });
-
-    // ── Scene 3: Mat wipe ──────────────────────────────────────────
-    tl.add(() => activateStep(2))
-      .to('#la-clip-rect', { attr: { width: 440 }, duration: 1.0, ease: 'power3.inOut' }, '<0.3');
-
-    // ── Scene 4: Stitching ─────────────────────────────────────────
-    tl.add(() => activateStep(3))
-      .to('#la-stitch', { opacity: 1, duration: 0.3 })
-      .to('#la-stitch-rect', { attr: { strokeDashoffset: 0 }, duration: 2.0, ease: 'power2.inOut' })
-      // needle follows corners manually
-      .to('#la-needle', { opacity: 1, duration: 0.2 }, '<')
-      .to('#la-needle', { attr: { cx: 602 }, duration: 0.5, ease: 'none' }, '<')
-      .to('#la-needle', { attr: { cy: 342 }, duration: 0.32, ease: 'none' })
-      .to('#la-needle', { attr: { cx: 198 }, duration: 0.5, ease: 'none' })
-      .to('#la-needle', { attr: { cy: 108 }, duration: 0.32, ease: 'none' })
-      .to('#la-needle', { opacity: 0, duration: 0.2 })
-      // brand text appears
-      .to(['#la-brand','#la-sub'], { attr: { fill: 'rgba(251,249,246,0.25)' }, duration: 0.6, stagger: 0.15 })
-      .to({}, { duration: 1.0 })                               // hold finished state
-      // ── Reset for next loop ────────────────────────────────────
-      .to(['#la-stitch','#la-hide','#la-cut'], { opacity: 0, duration: 0.5 })
-      .to('#la-clip-rect', { attr: { width: 0 }, duration: 0.5, ease: 'power2.inOut' }, '<')
-      .set('#la-guide',       { attr: { strokeDashoffset: PERIMETER } })
-      .set('#la-stitch-rect', { attr: { strokeDashoffset: PERIMETER } })
-      .set('#la-knife',  { attr: { cx: 180, cy: 90 } })
-      .set('#la-needle', { attr: { cx: 198, cy: 108 } })
-      .set(['#la-brand','#la-sub'], { attr: { fill: 'rgba(251,249,246,0)' } });
-
-    return tl;
-  }
-
-  // Start when section scrolls into view
-  const svg = document.getElementById('la-svg');
-  if (svg) {
-    const io = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        buildTimeline();
-        io.disconnect();
-      }
-    }, { threshold: 0.25 });
-    io.observe(svg);
-  }
-</script>

@@ -46,25 +46,25 @@ const colors = [
         </h2>
       </div>
       <p class="text-sand/40 text-sm leading-relaxed max-w-xs">
-        Choose your colourway — both pieces update in sync.
+        Four colourways. One standard of finish.
       </p>
     </div>
 
     <!-- Colour selector -->
-    <div class="flex items-center gap-2 sm:gap-3 mb-14 anim-stagger">
+    <div class="flex items-center gap-3 mb-14">
       {colors.map((c, i) => (
         <button
-          class="color-btn flex items-center gap-2.5 px-4 py-2.5 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-sand/40 transition-all hover:border-caramel/50 hover:text-sand/70"
+          class="color-btn flex items-center gap-3 px-5 py-3 border border-white/20 text-[10px] tracking-[0.18em] uppercase text-sand/60 transition-all duration-300 hover:border-caramel hover:text-sand"
           data-color={c.id}
           data-desk={c.deskMat}
           data-pad={c.mousePad}
           aria-pressed={i === 0 ? 'true' : 'false'}
         >
           <span
-            class="w-3.5 h-3.5 rounded-full flex-shrink-0 ring-1 ring-white/10"
+            class="w-4 h-4 rounded-full flex-shrink-0 ring-1 ring-white/20"
             style={`background:${c.swatch}`}
           ></span>
-          <span class="hidden sm:inline">{c.label}</span>
+          {c.label}
         </button>
       ))}
     </div>
